@@ -1,0 +1,24 @@
+@startuml
+actor User
+package "Data Sources" {
+  [SQL Database]
+  [CSV Files]
+  [Streaming Data]
+}
+package "Data Ingestion" {
+  [Queue] --> [Raw Data Storage]
+}
+package "Data Processing" {
+  [Data Transformation] --> [Anomaly Detection]
+}
+package "Data Quality Module" {
+  [Accuracy Check] --> [Completeness Check]
+  [Consistency Check] --> [Uniqueness Check]
+}
+package "Modeling and Analytics" {
+  [Machine Learning Model] --> [Reporting Database]
+}
+User --> [SQL Database]
+User --> [CSV Files]
+User --> [Streaming Data]
+@enduml
